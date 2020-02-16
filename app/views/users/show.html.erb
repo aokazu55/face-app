@@ -1,0 +1,24 @@
+<h1>
+  <strong><%= @user.name %>のページ</strong>
+</h1>
+
+<p>
+  <strong>プロフィール画像</strong>
+  <%= image_tag @user.image.to_s %>
+</p>
+
+<p>
+  <strong>メールアドレス：</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>パスワード：</strong>
+  <%= @user.password_digest %>
+</p>
+
+<div class="footer">
+  <td><%= link_to '新規投稿に進む', new_post_path %></td>
+  <%= link_to 'ユーザー編集をする', edit_user_path(@user) %>
+  <%= link_to 'ユーザーリストに進む', users_path %>
+</div>

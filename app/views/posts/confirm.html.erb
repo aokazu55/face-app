@@ -1,0 +1,16 @@
+<h1>以下の内容で投稿しますか？</h1>
+<%= form_with(model: @post, local: true) do |form| %>
+  <%= form.hidden_field :title %>
+  <%= form.hidden_field :content %>
+  <%= form.hidden_field :image %>
+  <%= form.hidden_field :image_cache %>
+  <div class="confirm">
+    <p>タイトル：<%= @post.title %></p>
+    <p>内容：<%= @post.content %></p>
+    <p>イメージ：<%= image_tag @post.image.to_s %></p>
+    <div class ="footer">
+      <%= form.submit  "これで登録する" %>
+      <%= form.submit "はじめに戻る" %>
+    </div>
+  </div>
+<% end %>

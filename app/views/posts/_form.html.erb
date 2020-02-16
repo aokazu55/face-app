@@ -1,0 +1,36 @@
+<%= form_with(model: post, local: true, url: choose_new_or_edit) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "箇所") %> 登録内容にエラーがあります。</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :タイトル %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :イメージ %><br />
+    <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
+  </div>
+
+  <div class="field">
+    <%= form.label :投稿内容 %>
+    <%= form.text_field :content %>
+  </div>
+
+  <div class="actions">
+    <div class="decide">
+    <%= form.submit "この内容で投稿する"%>
+    </div>
+  </div>
+<% end %>
