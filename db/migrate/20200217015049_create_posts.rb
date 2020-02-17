@@ -7,7 +7,6 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
 
       t.timestamps
-      t.index ["user_id"], name: "index_posts_on_user_id"
     end
   end
 end
