@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :favorite_list]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   def index
-    @users = User.all
+    @users = User.all.order(id: "DESC")
   end
 
   def show
-
   end
 
   def new
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'ユーザー登録が完了しました！.' }
+        format.html { redirect_to @user, notice: 'ユーザー登録が完了です！ログイン画面に進んでください！' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -50,6 +50,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def favorite_list
+    @favorites = current_user.favorite_posts.all
+  end
+
   private
   def set_user
     @user = User.find(params[:id])
@@ -58,4 +62,20 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :image_cache)
   end
+
+  # def correct_user
+  #   user = User.find(params[:id])
+  #   if current_user != user
+  #     redirect_to posts_path
+  #   end
+  # end
+
+  def check_user
+    @user = User.find(params[:id])
+  unless current_user.id == @user.id
+    flash[:notice] = "他のInfluencerは削除と編集できないよ！"
+    redirect_to users_path
+  end
+end
+
 end

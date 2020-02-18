@@ -1,4 +1,4 @@
-<h1>FaceApps</h1>
+<h1>InstaApps</h1>
 
 <table>
   <div class="user_thead">
@@ -20,8 +20,10 @@
         <td><%= post.user_id %></td>
         <td><%= image_tag post.image.to_s %></td>
         <td><%= link_to '詳細をみる', post %></td>
-        <td><%= link_to '編集する', edit_post_path(post) %></td>
-        <td><%= link_to '削除する', post, method: :delete, data: { confirm: '本当に削除して良いですか?' } %></td>
+        <% if @user == current_user %>
+          <td><%= link_to '編集する', edit_post_path(post) %></td>
+          <td><%= link_to '削除する', post, method: :delete, data: { confirm: '本当に削除して良いですか?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

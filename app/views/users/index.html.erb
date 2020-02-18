@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>FaceAppers</h1>
+<h1>Influesers</h1>
 
   <table>
     <thead>
@@ -21,8 +21,9 @@
           <td class="d"><%= user.password_digest %></td>
           <td class="e"><%= link_to '詳細', user %></td>
           <td class="f"><%= link_to '編集', edit_user_path(user) %></td>
-          <td class="g"><%= link_to '削除', user, method: :delete, data: { confirm: '本当に削除しても良いですか?' } %></td>
+          <td class="g"><%= link_to '削除', user, method: :delete %></td>
         </tr>
+
       <% end %>
     </tbody>
   </table>

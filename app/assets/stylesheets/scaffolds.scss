@@ -22,20 +22,21 @@ pre {
 }
 
 a {
-  color: #000;
+  color: #250d00;
+  font-weight: bold;
 
   &:visited {
-    color: #666;
+    color: #595455;
   }
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    background-color: #fffacd;
+    color: #250d00;
   }
 }
 
 th {
-  padding: 10px;
+  padding: 40px 10px 10px 10px;
   font-weight: bold;
   font-size: 20px;
   text-align: center;
@@ -43,6 +44,7 @@ th {
 
 td {
   padding: 10px;
+  text-align: center;
 }
 
 tbody {
@@ -54,8 +56,8 @@ h1 {
   font-weight: bold;
   padding: 10px;
   font-size: 60px;
-  background-color: #0075c2;
-  color: #fff;
+  background-color: #fbfaf5;
+  color: #250d00;
 }
 
 div {
@@ -76,17 +78,17 @@ div {
   text-align: left;
   font-size: 18px;
   font-weight: bold;
-  background-color: #0075c2;
-  color: white;
+  background-color: #fbfaf5;
+  color: #250d00;
 }
 
 .footer a {
-  color: white;
+  color: #250d00;
   padding: 0 10px;
 }
 
 .footer input {
-  color: white;
+  color: #250d00;
   padding: 0 10px;
 }
 
@@ -106,19 +108,22 @@ table {
 
 .decide {
   padding: 5px;
- font-size: 15px;
- font-weight: bold;
- color: white;
- background-color: #9fa09e;
+  font-size: 15px;
+  font-weight: bold;
+  color: #250d00;
+  background-color: #fbfaf5;
 }
 
 .field {
   margin: 15px 10px;
 }
 
-input {
-  color: black;
-  font-size: 12px
+.confirm_footer {
+  padding: 30px 10px;
+  text-align: left;
+  font-size: 18px;
+  background-color: #fbfaf5;
+  color: #250d00;
 }
 
 form {
@@ -127,6 +132,21 @@ form {
 
 img {
   text-align: center;
+}
+
+.notice {
+  padding: 15px 10px 0 10px;
+  text-align: left;
+  font-size: 25px;
+  font-weight: bold;
+  color: #bb5548;
+}
+
+.favorite_button {
+  font-weight: bold;
+  padding: 10px;
+  color: #bb5548;
+
 }
 
 #notice {

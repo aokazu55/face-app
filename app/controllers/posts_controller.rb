@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(id: "DESC")
   end
 
   def show
+    @favorite = current_user.favorites.find_by(post_id: @post.id)
   end
 
   def new
@@ -26,8 +28,9 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: '投稿完了しました！' }
+        format.html { redirect_to @post, notice: '投稿が完了しました！' }
         format.json { render :show, status: :created, location: @post }
+        ContactMailer.contact_mail(@post).deliver
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -62,5 +65,13 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :image, :content, :user_id, :image_cache)
+  end
+
+  def authenticate_user
+    @post = Post.find(params[:id])
+    unless current_user.id == @post.user.id
+      flash[:notice] = "他のインフルエンサーの削除、編集はできないよ！"
+      redirect_to posts_path
+    end
   end
 end
