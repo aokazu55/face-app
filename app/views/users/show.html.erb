@@ -21,7 +21,7 @@
   <%= link_to '新規投稿に進む', new_post_path %>
     <% if @user == current_user %>
       <%= link_to 'ユーザー編集をする', edit_user_path(@user) %>
-      <%= link_to 'お気に入り一覧はコチラ', favorites_path %>
+      <%= link_to 'お気に入り一覧はコチラ', favorite_list_user_path(@user) %>
     <% end %>
   <%= link_to 'ユーザーリストに進む', users_path %>
   <%= link_to '投稿一覧に進む', posts_path %>

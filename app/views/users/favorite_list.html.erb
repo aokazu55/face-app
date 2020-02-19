@@ -1,10 +1,10 @@
 <h1>お気に入りの投稿一覧</h1>
 
 <div class="favorite_list">
-  <% @favorites.each do |favor| %>
-    <div class="favor_page_image_area">
-      <%= link_to post_path(favor) do %>
-        <%= image_tag favor.image.url ,class: "favor_image" %>
+  <% @favorites.each do |favorlite| %>
+    <div class="favorlite_page_image_area">
+      <%= link_to post_path(favorlite) do %>
+        <%= image_tag favorlite.image.url %>
       <% end %>
     </div>
   <% end %>
