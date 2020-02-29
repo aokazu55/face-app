@@ -26,8 +26,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    # ContactMailer.contact_mail(@post).deliver
     respond_to do |format|
+      ContactMailer.contact_mail(@post).deliver
       if @post.save
         format.html { redirect_to @post, notice: '投稿が完了しました！' }
         format.json { render :show, status: :created, location: @post }
