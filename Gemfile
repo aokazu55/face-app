@@ -28,6 +28,8 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
+  gem 'bcrypt_pbkdf'
+  gem 'ed25519'
 end
 
 group :development do
