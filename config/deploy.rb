@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.6.0'
 # デプロイするアプリケーション名
-set :application, 'InstaClone-app'
+set :application, 'achieve'
 # cloneするgitのレポジトリ
 # （xxxxxxxx：ユーザ名、yyyyyyyy：アプリケーション名）
 set :repo_url, 'https://github.com/aokazu55/InstaClone-app.git'
