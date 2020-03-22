@@ -18,7 +18,7 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'dotenv-rails' # 開発環境で環境変数を操作するのに必要
-gem 'unicorn' # アプリケーションサーバのunicorn
+gem 'unicorn', '5.4.1'
 gem 'mini_racer', platforms: :ruby # デプロイ時に必要
 
 group :development, :test do
