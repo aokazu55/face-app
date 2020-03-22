@@ -21,10 +21,12 @@ set :rbenv_type, :system
 # 本番環境用のものであれば、 :info程度が普通。
 # ただし挙動をしっかり確認したいのであれば :debug に設定する。
 set :log_level, :info
-set :ssh_options, {
-  keys: %w(~/.ssh/id_rsa),
-  forward_agent: true,
-  auth_methods: %w(publickey)
+set :default_env, {
+  rbenv_root: "/home/user/.rbenv",
+  path: "/home/user/.rbenv/bin:$PATH",
+  region: ENV["S3_REGION"],
+  aws_access_key_id: ENV["S3_ACCESS_KEY"],
+  aws_secret_access_key: ENV["S3_SECRET_KEY"]
 }
 namespace :deploy do
   desc 'Restart application'
